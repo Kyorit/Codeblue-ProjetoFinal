@@ -652,7 +652,7 @@ button{
     /* container */
     .container{
         margin: 0 15px;
-        width: 100%;
+        /* width: 100%; */
     }
 
     /* banner */
@@ -717,7 +717,6 @@ button{
     
     /* header */
     nav{box-shadow: 0px 4px 5px rgba(123, 123, 123, 0.15);}
-    nav.container{margin: 0}
     .hamburguer{display: block;}
     .menu {
         display: none;
