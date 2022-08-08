@@ -3,13 +3,10 @@ html,
 body,
 div,
 span,
-iframe,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6,
 p,
 a,
 address,
@@ -166,7 +163,6 @@ nav, nav section, nav ul{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
 }
 nav section:last-child{gap: 20px;}
 nav ul{
@@ -784,6 +780,7 @@ button{
         margin-top: 70px;
         padding: 120px 0 0;
     }
+    .info figure{margin-top: 40px;}
     .info img{width: 100%;}
     .info li{
         list-style-position: outside;
