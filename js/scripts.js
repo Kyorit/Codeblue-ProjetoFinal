@@ -6,15 +6,13 @@ $(document).ready(function(){
         $(".menu").slideToggle();
     })
 
-    $(".opnioes article:nth-child(1)").on('click', function(){
-        $(".opnioes").addClass("left");
-    })
-    $(".opnioes article:nth-child(2)").on('click', function(){
-        $(".opnioes").removeClass("left");
-        $(".opnioes").removeClass("right");
-    })
-    $(".opnioes article:nth-child(3)").on('click', function(){
-        $(".opnioes").addClass("right");
+    $(".testemunhos section:nth-Child(2)").on('scroll', function(){
+        $(".opnioes article").removeClass("centralizar");
+    });
+
+    $(".opnioes article").on('click', function(){
+        $(".opnioes article").removeClass("centralizar");
+        $(this).addClass("centralizar");
     })
 
     $(".veja-Mais").on('click', function(){
@@ -30,28 +28,24 @@ $(document).ready(function(){
 })
 
 
-function produtoMais(){
-    var x = parseInt($("#quantidade-produto").val()) + 1;
-    $("#quantidade-produto").val(x);
-    precoFinal();
-}
-function produtoMenos(){
-    var x = parseInt($("#quantidade-produto").val()) - 1;
-    if(x < 0) {x = 0;}
+function alteraQtd(op){
+    var x = parseInt($("#quantidade-produto").val());
+    if(op == "+"){x = x + 1;}
+    else{x = x - 1;}
+    console.log(x);
     $("#quantidade-produto").val(x);
     precoFinal();
 }
 function precoFinal(){
-    if($('.carrinho-subTotal').length){
+    if($('.carrinho-Total').length){
         var teste = $("#preco-fixo").html();
         var teste2 = teste.substring(1);
-        teste2 = teste2.replace(",",".");
         var aqui = $("#quantidade-produto").val();
         teste2 = "$ " + (parseFloat(teste2) * aqui);
-        $(".carrinho-subTotal").html(teste2);
+        $(".carrinho-Total").html(teste2);
     }
 }
 function removeLinha(){
     $("#fomulario-carrinho tr:nth-child(3)").remove();
-    $(".carrinho-subTotal").html("$ 0,00")
+    $(".carrinho-Total").html("$ 0,00")
 }

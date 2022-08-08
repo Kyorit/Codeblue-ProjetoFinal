@@ -218,7 +218,7 @@ h2{
     backdrop-filter: blur(4px);
 }
 .banner p{
-    font: 400 18px/25px Helvetica, sans-serif;
+    font: 18px/25px Helvetica, sans-serif;
     color: #1D252C;;
 }
 .botao{
@@ -270,7 +270,7 @@ h2{
 }
 .produtos p{
     text-align: right;
-    font: 500 20px 'Roboto', Arial, Helvetica, sans-serif;
+    font: 20px 'Roboto', Arial, Helvetica, sans-serif;
     color: #56B280;
 }
 
@@ -287,7 +287,7 @@ h2{
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    gap: 40px;
+    column-gap: 40px;
     height: 500px;
 }
 .info h2{line-height: 46px;}
@@ -306,26 +306,30 @@ h2{
     color: #000;
 }
 .info span{font-weight: 500;}
-.info figure{align-self: flex-end;}
+.info figure{margin-top: 120px;}
 
 /* testemunhos */
 .testemunhos{
     text-align: center;
     background: rgba(86, 178, 128, 0.1);
     padding-top: 90px;
-    overflow: hidden;
 }
-.testemunhos section:not(section:first-child){
+.testemunhos .opnioes::-webkit-scrollbar{display: none;}
+.testemunhos .opnioes{
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.testemunhos .opnioes section{
     display: flex;
-    justify-content: space-between;
     margin-top: 25px;
     gap: 40px;
 }
+.centralizar{scroll-snap-align: center;}
 .testemunhos h2{color: #0B254B;}
 .testemunhos p{
-    font-size: 18px;
+    font: 18px/2 'Poppins', Arial, Helvetica, sans-serif;
     color: #5E6E89;
-    line-height: 2;
 }
 .testemunhos article{
     width: 350px;
@@ -342,11 +346,11 @@ h2{
 }
 .testemunhos img:not(img:first-child){margin: 14px auto 20px;}
 .testemunhos h3{
-    font-size: 22px;
+    font: 500 22px/28px 'Poppins', Arial, Helvetica, sans-serif;
     color: #1D293F;
 }
 .testemunhos article p{
-    font: 400 18px/20px Helvetica, sans-serif;
+    line-height: 20px;
     color: #7C8087;
     margin-top: 10px;
 }
@@ -407,6 +411,7 @@ footer{margin-top: 70px;}
 }
 
 /* produto.html =================================================== */
+/* apresentação produto */
 .compra{
     padding-top: 120px;
     width: 49%;
@@ -445,6 +450,8 @@ footer{margin-top: 70px;}
     top: 4px;
     right: 3px;
 }
+
+/* formulario de venda */
 .compra h2{
     font-size: 26px;
     text-align: left;
@@ -457,6 +464,8 @@ footer{margin-top: 70px;}
     justify-content: space-between;
     color: #272727;
 }
+
+/* preço e quantidade */
 .valores form article > p{
     font: 600 26px 'Poppins', Arial, Helvetica, sans-serif;
     color: #56B280;
@@ -492,6 +501,8 @@ button{
     font-size: 15px;
     color: #56B280;
 }
+
+/* pedido mensal */
 .valores ul{
     width: 70%;
     display: flex;
@@ -512,6 +523,17 @@ button{
     margin: 0 0 10px 20px ;
     padding: 0;
 }
+.valores ul p{
+    font: 400 16px Helvetica, sans-serif;
+    color: #818181;
+    letter-spacing: 0.3px;
+}
+.valores ul span{
+    font-size: 14px;
+    color: #56B280;
+}
+
+/* botão submit */
 .valores .botao{
     display: flex;
     align-items: center;
@@ -530,15 +552,8 @@ button{
     color: #56B280;
     background-color: #fff;
 }
-.valores ul p{
-    font: 400 16px Helvetica, sans-serif;
-    color: #818181;
-    letter-spacing: 0.3px;
-}
-.valores ul span{
-    font-size: 14px;
-    color: #56B280;
-}
+
+/* detalhes do produto */
 .compra article:last-child{
     font-family: Helvetica, sans-serif;
     color: #849A8E;
@@ -558,29 +573,41 @@ button{
 
 
 /* carrinho.html =================================================== */
+/* topo carrinho */
 .carrinho{
     margin: 130px auto 150px;
     text-align: center;
+    letter-spacing: -0.9px;
 }
 .carrinho .t-mobile{display: none;}
 .carrinho h2{
     font-size: 26px;
     padding: 0;
+    margin-bottom: 15px;
 }
 .carrinho a:last-child{
     display: block;
     color: #56B280;
     text-decoration: underline;
-    margin: 10px 0;
+    margin: 20px 0 50px;
     font: 400 18px 'Roboto', Arial, Helvetica, sans-serif;
 }
+
+/* formulario de pedidos do carrinho */
+.carrinho .controle-quantidade label{display: none;}
 .carrinho th, 
 .carrinho td, 
 .carrinho form section{
     font: 500 16px 'Roboto', Arial, Helvetica, sans-serif;
     vertical-align: middle;
 }
-.carrinho .controle-quantidade label{display: none;}
+.carrinho th, 
+.carrinho td{
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* produto */
+.carrinho .t-desktop th:first-child{width: 55%;}
 .carrinho img{
     float: left; 
     margin: 20px 30px 30px 0;
@@ -592,21 +619,20 @@ button{
     text-transform: initial;
     text-decoration: underline;
 }
-.carrinho th, 
-.carrinho td{
-    border-bottom: 1px solid #e5e5e5;
-}
-.carrinho tr td:first-child{padding: 32px 0;}
 .carrinho tr th:first-child{padding: 17px 0;}
-.carrinho tr th:first-child,
-.carrinho tr td:first-child{
+.carrinho tr td:first-child{padding: 30px 0 0px;}
+.carrinho tr :first-child{
     text-align: left;
 }
+
+/* total */
 .carrinho tr th:last-child,
 .carrinho tr td:last-child{
     text-align: right;
     width: 90px;
 }
+
+/* sub-total e submit*/
 .carrinho form section{text-align: right;}
 .carrinho form section{
     margin-top: 50px;
@@ -628,20 +654,6 @@ button{
     height: 40px;
 }
 
-/* checkout_Detalhes.html =================================================== */
-.check-Detalhes{
-    margin-top: 100px;
-}
-.check-Detalhes{
-    display: flex;
-    justify-content: space-between;
-}
-.check-Detalhes > section{
-    width: 100%;
-}
-.check-Detalhes > section:last-child{
-    background: #f2f2f2;
-}
 
 /* ========================================================= */
 /*                      media query */
@@ -650,10 +662,7 @@ button{
 
 @media screen and (max-width:768px) {
     /* container */
-    .container{
-        margin: 0 15px;
-        /* width: 100%; */
-    }
+    .container{margin: 0 15px;}
 
     /* banner */
     .banner article{
@@ -677,14 +686,7 @@ button{
     .info figure{order: 2;}
 
     /* testemunhos */
-    .opnioes{
-        width: fit-content;
-        justify-content: center;
-        position: relative;
-        left: -25%;
-    }
-    .left{left: 25%;}
-    .right{left: -75%;}
+    .opnioes section{width: fit-content; }
 
     /* footer */
     .rodape .container{flex-direction: column;}
@@ -772,8 +774,6 @@ button{
     .veja-Mais{display: block;}
     #produtos .veja-Mais ~ article{display: none;}
 
-
-
     /* informacoes */
     .info{
         margin-top: 70px;
@@ -801,14 +801,6 @@ button{
         margin-top: 5px;
     }
     .testemunhos img{width: 100px;}
-    .opnioes{
-        width: fit-content;
-        justify-content: center;
-        position: relative;
-        left: -55%;
-    }
-    .left{left: 10%;}
-    .right{left: -120%;}
 
     /* footer */
     .rodape img{width: 40px;}
@@ -886,12 +878,4 @@ button{
         margin-top: 45px;
         width: 100%;
     }
-}
-
-
-@media screen and (max-width:375px){
-    /* testemunhos */
-    .opnioes{left: -70%;}
-    .left{left: 0%;}
-    .right{left: -140%;}
 }

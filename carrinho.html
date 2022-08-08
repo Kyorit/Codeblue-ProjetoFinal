@@ -53,12 +53,15 @@
         <!-- corpo do site -->
         <main class="container">
             <section class="carrinho">
+
+                <!-- topo carrinho -->
                 <section>
                     <h2>Your cart items</h2>
                     <a href="produto.html">Back to shopping</a>
                 </section>
 
-                <form action="checkout_Detalhes.html" method="post" id="fomulario-carrinho">
+                <!-- formulario de pedidos do carrinho -->
+                <form action="" method="post">
                     <table>
                         <tr class="t-mobile">
                             <th>Product</th>
@@ -71,6 +74,7 @@
                             <th>Total</th>
                         </tr>
                         <tr>
+                            <!-- produto -->
                             <td>
                                 <picture>
                                     <source media="(max-width:425px )" srcset="Imagens/01-Spiced_Mint-Cart-mobile.png" alt="imagem produto aroma Spiced Mint">
@@ -81,23 +85,31 @@
                                 </a>
                                 <button type="button" onclick="removeLinha()">Remove</button>
                             </td>
-                            <td id="preco-fixo">$ 9,99</td>
+
+                            <!-- preço -->
+                            <td id="preco-fixo">$ 9.99</td>
+
+                            <!-- quatidade -->
                             <td>
                                 <div class="controle-quantidade">
                                     <label for="quantidade-produto">Quantity</label>
                                     <div>
-                                        <button type="button" id="compra-menos" onclick="produtoMenos()">-</button>
+                                        <button type="button" id="compra-menos" onclick="alteraQtd('-')">-</button>
                                         <input type="number" value="1" min="0" id="quantidade-produto" name="quantidade-produto">
-                                        <button type="button" id="compra-mais" onclick="produtoMais()">+</button>
+                                        <button type="button" id="compra-mais" onclick="alteraQtd('+')">+</button>
                                     </div>
                                 </div>
                             </td>
-                            <td class="t-desktop carrinho-subTotal">$ 9,99</td>
+
+                            <!-- total -->
+                            <td class="t-desktop carrinho-Total">$ 9.99</td>
                         </tr>
                     </table>
+
+                    <!-- sub-total e submit -->
                     <section>
                         <article>
-                            <h4>Sub-Total <span class="carrinho-subTotal">$9.99</span></h4>
+                            <h4>Sub-Total <span class="carrinho-Total">$ 9.99</span></h4>
                             <p>Tax and shipping cost will be calculed later</p>
                         </article>
                         <button type="submit" class="botao">Checkout</button>
