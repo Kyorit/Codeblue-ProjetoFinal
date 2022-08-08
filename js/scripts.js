@@ -31,8 +31,13 @@ $(document).ready(function(){
 function alteraQtd(op){
     var x = parseInt($("#quantidade-produto").val());
     if(op == "+"){x = x + 1;}
-    else{x = x - 1;}
-    console.log(x);
+    else{ 
+        if (x > 0){
+            x = x - 1;
+        }
+        else{ x = 0}
+    }
+
     $("#quantidade-produto").val(x);
     precoFinal();
 }
