@@ -68,7 +68,7 @@ function precoFinal(){
     }
 }
 function removeLinha(){
-    $("#formulario-carrinho tr:nth-child(3)").remove();
+    $("#fomulario-carrinho tr:nth-child(3)").remove();
     $(".carrinho-Total").html("$ 0,00")
 }
 
