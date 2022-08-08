@@ -716,6 +716,11 @@ button{
 @media screen and (max-width:425px) {
     /* container */
     .container{margin: 0 15px;}
+    nav.container{
+        margin: 0;
+        width: 100%;
+        justify-content: space-around;
+    }
     
     /* header */
     nav{box-shadow: 0px 4px 5px rgba(123, 123, 123, 0.15);}
@@ -862,7 +867,7 @@ button{
     .carrinho tr td:not(td:first-child){
         margin-top: 40px;
     }
-    .carrinho tr td:first-child{width: 94%;}
+    .carrinho tr td:first-child{width: 92%;}
     .carrinho img{margin: 0;}
     .carrinho h2:not(h2:first-Child){
         font:500 20px/27px 'Poppins', Arial, Helvetica, sans-serif;
@@ -870,6 +875,7 @@ button{
     }
     .carrinho td{font-size: 18px;}
     .carrinho td > button{font-size: 18px;}
+    .carrinho div button{padding: 3px 8px;}
     .carrinho form section{
         display: block;
         text-align: center;
